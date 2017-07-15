@@ -38,3 +38,66 @@ span {
 hr {
   color: #d1d3d4;
 }
+
+
+
+
+
+
+article {
+  width: 55%;
+  display: block;
+  margin: auto;
+  position: relative;
+}
+
+.idea-section {
+  height: 60vh;
+}
+article div {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: .72em;
+  display: inline-block;
+}
+article h2 {
+  font-family: "Roboto Slab", sans-serif;
+  display: inline-block;
+  margin: 0;
+}
+article h5 {
+  font-family: "Roboto Slab", sans-serif;
+  display: inline-block;
+  margin: 0;
+  color: #6d6e71
+}
+article span {
+  font-family: "Open Sans", sans-serif;
+}
+article p {
+  font-family: "Open Sans", sans-serif;
+  line-height: 120%;
+}
+.delete-btn {
+  position: absolute;
+  right: 0;
+  background-image: url('assets/delete.svg');
+}
+.delete-btn:hover {
+  background-image: url('assets/delete-hover.svg');
+}
+.upvote-btn {
+  background-image: url('assets/upvote.svg');
+}
+.upvote-btn:hover {
+  background-image: url('assets/upvote-hover.svg');
+}
+.downvote-btn {
+  background-image: url('assets/downvote.svg');
+}
+.downvote-btn:hover {
+  background-image: url('assets/downvote-hover.svg');
+}
+.upvote-btn, .downvote-btn {
+  margin-right: 0.5em;
+}
