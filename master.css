@@ -49,21 +49,31 @@ article {
   display: block;
   margin: auto;
   position: relative;
+  text-align: left;
 }
 
 .idea-section {
   height: 60vh;
+  text-align: center;
+}
+.idea-section input {
+  margin: auto;
+  width: 55%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 1em;
 }
 article div {
-  width: 1.5em;
-  height: 1.5em;
-  border-radius: .72em;
+  width: 1.3em;
+  height: 1.3em;
+  border-radius: .65em;
   display: inline-block;
 }
-article h2 {
+article h2, article h3, article h4, article h5 {
   font-family: "Roboto Slab", sans-serif;
   display: inline-block;
   margin: 0;
+  color: #6d6e71
 }
 article h5 {
   font-family: "Roboto Slab", sans-serif;
@@ -77,6 +87,9 @@ article span {
 article p {
   font-family: "Open Sans", sans-serif;
   line-height: 120%;
+  margin-top: 0.5em;
+  margin-bottom: 0.75em;
+  font-size: 0.9em;
 }
 .delete-btn {
   position: absolute;
@@ -99,5 +112,5 @@ article p {
   background-image: url('assets/downvote-hover.svg');
 }
 .upvote-btn, .downvote-btn {
-  margin-right: 0.5em;
+  margin-right: 0.6em;
 }
