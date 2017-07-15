@@ -1,0 +1,40 @@
+.input-section {
+  background-color: #e5f3f2;
+}
+
+
+
+
+#save-btn {
+  background-color: #00a79d;
+  color: #ffffff;
+}
+
+#save-btn:hover{
+  background-color: #045e55;
+}
+
+h1 {
+  color: #00a79d;
+  text-align: center;
+}
+
+h2 {
+  color: #6d6e71;
+}
+
+p {
+  color: #939598;
+}
+
+.header {
+  color: #6d6e71;
+}
+
+span {
+  color: #6d6e71;
+}
+
+hr {
+  color: #d1d3d4;
+}
