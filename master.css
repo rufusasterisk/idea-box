@@ -1,13 +1,34 @@
+* {
+  margin: 0;
+}
 .input-section {
   background-color: #e5f3f2;
+  /*text-align: center*/
+  height: 40vh;
 }
 
+.input-field {
+  width: 55%;
+  margin-bottom: 10px;
+  font-size: 14px;
+  /*color: #939598;*/
+}
 
+#title-field, #body-field{
+  color: #939598;
+}
 
+form {
+  text-align: center;
+}
 
 #save-btn {
   background-color: #00a79d;
   color: #ffffff;
+  /*margin-bottom: 10px;*/
+  width: 55%;
+  border: none;
+  font-size: 14px;
 }
 
 #save-btn:hover{
@@ -17,6 +38,11 @@
 h1 {
   color: #00a79d;
   text-align: center;
+  padding-top: 30px;
+  font-size: 40px;
+  padding-bottom: 20px;
+  font-family: roboto slab;
+
 }
 
 h2 {
