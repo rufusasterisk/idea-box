@@ -1,19 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Idea Box</title>
-  <link rel="stylesheet" href="master.css">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Idea Box</title>
+    <link rel="stylesheet" href="master.css">
 
-</head>
-<body>
+  </head>
+  <body>
+    <section class="input-section">
+      <h1>idea box</h1>
+      <form>
+        <input id="title-field" class="input-field" type="text" placeholder="Title">
+        <input id="body-field" class="input-field" type="text" placeholder="Body">
+        <button id="save-btn">Save</button>
+      </form>
+    </section>
+
+    <section class="idea-section">
+      <input id="search-field" class="input-field" type="text" placeholder="Search">
+      <div class="">
+        <article class="card">
+
+        <h2>example idea 1</h2>
+        <button class="delete-btn" type="button">X</button>
+        <p></p>
+        <button class="upvote-btn"></button>
+        <button class="downvote-btn"></button>
+        <span></span>
+        </article>
+      </div>
+    </section>
 
 
 
 
-  <script src="jquery-3.2.1.js"></script>
-  <script type="text/javascript" src="scripts.js"></script>
-</body>
+
+
+
+
+
+    <script src="jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
+  </body>
 </html>
