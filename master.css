@@ -14,8 +14,9 @@
   /*color: #939598;*/
 }
 
-#title-field, #body-field{
+.input-field::-webkit-input-placeholder {
   color: #939598;
+  font-family: "open sans";
 }
 
 form {
