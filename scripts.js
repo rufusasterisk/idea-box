@@ -1,3 +1,15 @@
+var ideaArray = [];
+var id = 1;
+
+$("#save-btn").on('click', function(){
+  event.preventDefault();
+  var titleInput = $("#title-field").val();
+  var bodyInput = $("#body-field").val();
+  ideaArray.unshift(new IdeaCard(id, titleInput, bodyInput));
+  id++;
+})
+
+
 
 function IdeaCard(id, title, body) {
   this.id = id;
