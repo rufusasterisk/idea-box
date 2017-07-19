@@ -1,38 +1,34 @@
 var ideaArray = [];
 var id = 1;
-var upVote = document.querySelector(".upvote-btn")
-var downVote = document.querySelector(".downvote-btn")
-var deleteButton = document.querySelector(".delete-btn")
+// var upVote = document.querySelector(".upvote-btn")
+// var downVote = document.querySelector(".downvote-btn")
+// var deleteButton = document.querySelector(".delete-btn")
 
 // these are the listeners couldnt figure out how to make them count up and down or get the delete to work right
-upVote.addEventListener("click", function(){
-    console.log(getQuality())
-});
-
-downVote.addEventListener("click", function(){
-    console.log(getQuality())
-});
-
-deleteButton.addEventListener("click", function(event){
-    event.preventDefault()
-    // var  card = document.querySelector(".card");
-    // card.parentNode.removeChild(card);
-    // return false;
-    });
+// upVote.addEventListener("click", function(){
+//     console.log(getQuality())
+// });
 
 
+// downVote.addEventListener("click", upvoteCard);
 
-
-
-
+// deleteButton.addEventListener("click", function(event){
+//     event.preventDefault()
+//     console.log("click delete");
+//     // var  card = document.querySelector(".card");
+//     // card.parentNode.removeChild(card);
+//     // return false;
+//     });
 $("#save-btn").on('click', function(){
   event.preventDefault();
   var titleInput = $("#title-field").val();
   var bodyInput = $("#body-field").val();
-  ideaArray.unshift(new IdeaCard(id, titleInput, bodyInput));
+  //pass Date.now() value as ID
+  ideaArray.unshift(new IdeaCard(id, titleInput, bodyInput)); //replace with line below
+  //parse ID into local storage
   id++;
-  displayCards(ideaArray);
-});
+  displayCards(ideaArray);//pass single card to function as array
+})
 
 function displayCards(displayArray){
   $('.card-div').empty()
@@ -45,6 +41,49 @@ function displayCards(displayArray){
 function insertCard(cardHTML){
   $(".card-div").append(cardHTML);
 }
+
+//event listener in jquery to for upvote button
+$(".idea-section").on('click', '.upvote-btn', upvoteCard)
+
+function upvoteCard(clickedCard){
+  //update card on screen
+  var currentSpan = $(this).parent().find('span');
+  console.log(currentSpan);
+  if (currentSpan.text() === "swill"){
+    currentSpan.text("plausible");
+    //update local storage with new card quality
+  }
+  else if (currentSpan.text() === "plausible"){
+    currentSpan.text("genius");
+    //update local storage with new card quality
+  }
+}
+
+//event listener in jquery for downvote button
+$(".idea-section").on('click', '.downvote-btn', downvoteCard);
+
+function downvoteCard(){
+  //update card on screen
+  var currentSpan = $(this).parent().find('span');
+  if (currentSpan.text() === "genius"){
+    currentSpan.text("plausible");
+    //update local storage with new card quality
+  }
+  else if (currentSpan.text() === "plausible"){
+    currentSpan.text("swill");
+    //update local storage with the new card quality
+  }
+}
+
+//event listener in jquery for delete button
+$(".idea-section").on('click', '.delete-btn', deleteCard);
+
+function deleteCard(){
+  //remove card from screen
+  $(this).parent().remove();
+  //remove card from localStorage
+}
+
 
 function buildCard(currentCard){
   var voteText = getQuality(currentCard.quality);
@@ -76,10 +115,10 @@ function IdeaCard(id, title, body) {
   this.title = title;
   this.body = body;
   this.quality = 0; //quality ranges from 0-2
-  this.upvote = function(){
-    this.quality < 2 ? this.quality++ : 0;
-  }
-  this.downvote = function(){
-    this.quality > 0 ? this.quality-- : 0;
-  }
+  // this.upvote = function(){
+  //   this.quality < 2 ? this.quality++ : 0;
+  // }
+  // this.downvote = function(){
+  //   this.quality > 0 ? this.quality-- : 0;
+  // }
 }
