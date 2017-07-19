@@ -27,11 +27,19 @@ $("#save-btn").on('click', function(){
   var id = Date.now();
   // ideaArray.unshift(new IdeaCard(id, titleInput, bodyInput)); //replace with line below
   var newCard = new IdeaCard(id, titleInput, bodyInput);
-  localStorage.setItem(newCard.id, JSON.stringify(newCard));  
+  localStorage.setItem(newCard.id, JSON.stringify(newCard));
   //parse ID into local storage
   // id++;
-  // displayCards(ideaArray);//pass single card to function as array
+  displayCards(getCardsFromStorage());//pass single card to function as array
 })
+function getCardsFromStorage(){
+  var cardArray = [];
+  for (var i = 0; i < localStorage.length; i++){
+    var currentKey = localStorage.key(i);
+    cardArray.push(JSON.parse(localStorage.getItem(currentKey)));
+  }
+  return cardArray
+}
 
 function displayCards(displayArray){
   $('.card-div').empty()
