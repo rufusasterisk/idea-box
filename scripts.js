@@ -1,8 +1,8 @@
 var ideaArray = [];
 var id = 1;
-var upVote = document.querySelector(".upvote-btn")
-var downVote = document.querySelector(".downvote-btn")
-var deleteButton = document.querySelector(".delete-btn")
+// var upVote = document.querySelector(".upvote-btn")
+// var downVote = document.querySelector(".downvote-btn")
+// var deleteButton = document.querySelector(".delete-btn")
 
 // these are the listeners couldnt figure out how to make them count up and down or get the delete to work right
 // upVote.addEventListener("click", function(){
@@ -12,13 +12,13 @@ var deleteButton = document.querySelector(".delete-btn")
 
 // downVote.addEventListener("click", upvoteCard);
 
-deleteButton.addEventListener("click", function(event){
-    event.preventDefault()
-    console.log("click delete");
-    // var  card = document.querySelector(".card");
-    // card.parentNode.removeChild(card);
-    // return false;
-    });
+// deleteButton.addEventListener("click", function(event){
+//     event.preventDefault()
+//     console.log("click delete");
+//     // var  card = document.querySelector(".card");
+//     // card.parentNode.removeChild(card);
+//     // return false;
+//     });
 $("#save-btn").on('click', function(){
   event.preventDefault();
   var titleInput = $("#title-field").val();
@@ -76,9 +76,11 @@ function downvoteCard(){
 }
 
 //event listener in jquery for delete button
+$(".idea-section").on('click', '.delete-btn', deleteCard);
 
 function deleteCard(){
   //remove card from screen
+  $(this).parent().remove();
   //remove card from localStorage
 }
 
