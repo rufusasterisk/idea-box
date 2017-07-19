@@ -9,7 +9,6 @@ var deleteButton = document.querySelector(".delete-btn")
 //     console.log(getQuality())
 // });
 
-$(".idea-section").on('click', '.upvote-btn', upvoteCard)
 
 // downVote.addEventListener("click", upvoteCard);
 
@@ -20,12 +19,6 @@ deleteButton.addEventListener("click", function(event){
     // card.parentNode.removeChild(card);
     // return false;
     });
-
-
-
-
-
-
 $("#save-btn").on('click', function(){
   event.preventDefault();
   var titleInput = $("#title-field").val();
@@ -50,6 +43,7 @@ function insertCard(cardHTML){
 }
 
 //event listener in jquery to for upvote button
+$(".idea-section").on('click', '.upvote-btn', upvoteCard)
 
 function upvoteCard(clickedCard){
   //update card on screen
@@ -63,16 +57,22 @@ function upvoteCard(clickedCard){
     currentSpan.text("genius");
     //update local storage with new card quality
   }
-  //update card in local storage
-    //grab ID from card
-    //pass ID to update function
 }
 
 //event listener in jquery for downvote button
+$(".idea-section").on('click', '.downvote-btn', downvoteCard);
 
 function downvoteCard(){
   //update card on screen
-  //update card in local storage
+  var currentSpan = $(this).parent().find('span');
+  if (currentSpan.text() === "genius"){
+    currentSpan.text("plausible");
+    //update local storage with new card quality
+  }
+  else if (currentSpan.text() === "plausible"){
+    currentSpan.text("swill");
+    //update local storage with the new card quality
+  }
 }
 
 //event listener in jquery for delete button
