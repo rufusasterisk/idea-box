@@ -5,16 +5,17 @@ var downVote = document.querySelector(".downvote-btn")
 var deleteButton = document.querySelector(".delete-btn")
 
 // these are the listeners couldnt figure out how to make them count up and down or get the delete to work right
-upVote.addEventListener("click", function(){
-    console.log(getQuality())
-});
+// upVote.addEventListener("click", function(){
+//     console.log(getQuality())
+// });
 
-downVote.addEventListener("click", function(){
-    console.log(getQuality())
-});
+$(".idea-section").on('click', '.upvote-btn', upvoteCard)
+
+// downVote.addEventListener("click", upvoteCard);
 
 deleteButton.addEventListener("click", function(event){
     event.preventDefault()
+    console.log("click delete");
     // var  card = document.querySelector(".card");
     // card.parentNode.removeChild(card);
     // return false;
@@ -33,13 +34,8 @@ $("#save-btn").on('click', function(){
   ideaArray.unshift(new IdeaCard(id, titleInput, bodyInput)); //replace with line below
   //parse ID into local storage
   id++;
-<<<<<<< HEAD
   displayCards(ideaArray);//pass single card to function as array
 })
-=======
-  displayCards(ideaArray);
-});
->>>>>>> master
 
 function displayCards(displayArray){
   $('.card-div').empty()
@@ -55,8 +51,18 @@ function insertCard(cardHTML){
 
 //event listener in jquery to for upvote button
 
-function upvoteCard(){
+function upvoteCard(clickedCard){
   //update card on screen
+  var currentSpan = $(this).parent().find('span');
+  console.log(currentSpan);
+  if (currentSpan.text() === "swill"){
+    currentSpan.text("plausible");
+    //update local storage with new card quality
+  }
+  else if (currentSpan.text() === "plausible"){
+    currentSpan.text("genius");
+    //update local storage with new card quality
+  }
   //update card in local storage
     //grab ID from card
     //pass ID to update function
