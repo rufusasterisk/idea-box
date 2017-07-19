@@ -1,5 +1,29 @@
 var ideaArray = [];
 var id = 1;
+var upVote = document.querySelector(".upvote-btn")
+var downVote = document.querySelector(".downvote-btn")
+var deleteButton = document.querySelector(".delete-btn")
+
+// these are the listeners couldnt figure out how to make them count up and down or get the delete to work right
+upVote.addEventListener("click", function(){
+    console.log(getQuality())
+});
+
+downVote.addEventListener("click", function(){
+    console.log(getQuality())
+});
+
+deleteButton.addEventListener("click", function(event){
+    event.preventDefault()
+    // var  card = document.querySelector(".card");
+    // card.parentNode.removeChild(card);
+    // return false;
+    });
+
+
+
+
+
 
 $("#save-btn").on('click', function(){
   event.preventDefault();
@@ -9,8 +33,13 @@ $("#save-btn").on('click', function(){
   ideaArray.unshift(new IdeaCard(id, titleInput, bodyInput)); //replace with line below
   //parse ID into local storage
   id++;
+<<<<<<< HEAD
   displayCards(ideaArray);//pass single card to function as array
 })
+=======
+  displayCards(ideaArray);
+});
+>>>>>>> master
 
 function displayCards(displayArray){
   $('.card-div').empty()
