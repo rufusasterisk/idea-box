@@ -1,5 +1,4 @@
-var ideaArray = [];
-
+displayCards(getCardsFromStorage());
 // var upVote = document.querySelector(".upvote-btn")
 // var downVote = document.querySelector(".downvote-btn")
 // var deleteButton = document.querySelector(".delete-btn")
@@ -38,7 +37,7 @@ function getCardsFromStorage(){
     var currentKey = localStorage.key(i);
     cardArray.push(JSON.parse(localStorage.getItem(currentKey)));
   }
-  return cardArray
+  return cardArray;
 }
 
 function displayCards(displayArray){
@@ -90,6 +89,8 @@ function downvoteCard(){
 $(".idea-section").on('click', '.delete-btn', deleteCard);
 
 function deleteCard(){
+  var cardKey = $(this).parent().data("storageId");
+  localStorage.removeItem(cardKey);
   //remove card from screen
   $(this).parent().remove();
   //remove card from localStorage
@@ -98,7 +99,7 @@ function deleteCard(){
 
 function buildCard(currentCard){
   var voteText = getQuality(currentCard.quality);
-  return `<article class="card">
+  return `<article class="card" data-storage-id="${currentCard.id}">
     <h3>${currentCard.title}</h3>
     <div class="delete-btn"></div>
     <p>${currentCard.body}</p>
