@@ -5,9 +5,11 @@ $("#save-btn").on('click', function(){
   event.preventDefault();
   var titleInput = $("#title-field").val();
   var bodyInput = $("#body-field").val();
-  ideaArray.unshift(new IdeaCard(id, titleInput, bodyInput));
+  //pass Date.now() value as ID
+  ideaArray.unshift(new IdeaCard(id, titleInput, bodyInput)); //replace with line below
+  //parse ID into local storage
   id++;
-  displayCards(ideaArray);
+  displayCards(ideaArray);//pass single card to function as array
 })
 
 function displayCards(displayArray){
@@ -21,6 +23,30 @@ function displayCards(displayArray){
 function insertCard(cardHTML){
   $(".card-div").append(cardHTML);
 }
+
+//event listener in jquery to for upvote button
+
+function upvoteCard(){
+  //update card on screen
+  //update card in local storage
+    //grab ID from card
+    //pass ID to update function
+}
+
+//event listener in jquery for downvote button
+
+function downvoteCard(){
+  //update card on screen
+  //update card in local storage
+}
+
+//event listener in jquery for delete button
+
+function deleteCard(){
+  //remove card from screen
+  //remove card from localStorage
+}
+
 
 function buildCard(currentCard){
   var voteText = getQuality(currentCard.quality);
