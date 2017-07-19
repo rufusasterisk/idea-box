@@ -1,5 +1,5 @@
 var ideaArray = [];
-var id = 1;
+
 // var upVote = document.querySelector(".upvote-btn")
 // var downVote = document.querySelector(".downvote-btn")
 // var deleteButton = document.querySelector(".delete-btn")
@@ -24,10 +24,13 @@ $("#save-btn").on('click', function(){
   var titleInput = $("#title-field").val();
   var bodyInput = $("#body-field").val();
   //pass Date.now() value as ID
-  ideaArray.unshift(new IdeaCard(id, titleInput, bodyInput)); //replace with line below
+  var id = Date.now();
+  // ideaArray.unshift(new IdeaCard(id, titleInput, bodyInput)); //replace with line below
+  var newCard = new IdeaCard(id, titleInput, bodyInput);
+  localStorage.setItem(newCard.id, JSON.stringify(newCard));  
   //parse ID into local storage
-  id++;
-  displayCards(ideaArray);//pass single card to function as array
+  // id++;
+  // displayCards(ideaArray);//pass single card to function as array
 })
 
 function displayCards(displayArray){
