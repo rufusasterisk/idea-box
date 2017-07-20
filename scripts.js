@@ -2,6 +2,12 @@ displayCards(getCardsFromStorage());
 $(".idea-section").on('click', '.upvote-btn', upvoteCard)
 $(".idea-section").on('click', '.downvote-btn', downvoteCard);
 $(".idea-section").on('click', '.delete-btn', deleteCard);
+$(".idea-section").on('blur', 'h3, p', updateCardText)
+$(".idea-section").on('keydown', 'h3, p', function(){
+  if (event.which == 13 ){
+    $("#search-field").focus();
+  }
+})
 $("#save-btn").on('click', function(){
   event.preventDefault();
   var titleInput = $("#title-field").val();
@@ -9,10 +15,19 @@ $("#save-btn").on('click', function(){
   var id = Date.now();
   var newCard = new IdeaCard(id, titleInput, bodyInput);
   setCard(newCard);
-  // localStorage.setItem(newCard.id, JSON.stringify(newCard));
   displayCards(getCardsFromStorage());
   clearTextField();
-});
+})
+
+function updateCardText(event){
+  var cardKey = $(event.target).parent().data("storageId");
+  var updatedTitle = $(event.target).parent().find("h3").text();
+  var updatedBody = $(event.target).parent().find("p").text();
+  var currentCard = getCard(cardKey);
+  currentCard.title = updatedTitle;
+  currentCard.body = updatedBody;
+  setCard(currentCard);
+}
 
 function getCardsFromStorage(){
   var cardArray = [];
@@ -20,6 +35,9 @@ function getCardsFromStorage(){
     var currentKey = localStorage.key(i);
     cardArray.push(JSON.parse(localStorage.getItem(currentKey)));
   }
+  cardArray.sort(function(a, b){
+    return b.id - a.id;
+  });
   return cardArray;
 }
 
@@ -90,9 +108,9 @@ function deleteCard(){
 
 function buildCard(currentCard){
   return `<article class="card" data-storage-id="${currentCard.id}">
-    <h3>${currentCard.title}</h3>
+    <h3 contenteditable="true">${currentCard.title}</h3>
     <div class="delete-btn"></div>
-    <p>${currentCard.body}</p>
+    <p contenteditable="true">${currentCard.body}</p>
     <div class="upvote-btn"></div>
     <div class="downvote-btn"></div>
     <h5>quality: <span>${currentCard.quality}</span></h5>
