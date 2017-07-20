@@ -1,13 +1,15 @@
 displayCards(getCardsFromStorage());
-$(".idea-section").on('click', '.upvote-btn', upvoteCard)
+$("#search-field").on('input', cardSearch);
+$(".idea-section").on('click', '.upvote-btn', upvoteCard);
 $(".idea-section").on('click', '.downvote-btn', downvoteCard);
 $(".idea-section").on('click', '.delete-btn', deleteCard);
-$(".idea-section").on('blur', 'h3, p', updateCardText)
+$(".idea-section").on('blur', 'h3, p', updateCardText);
 $(".idea-section").on('keydown', 'h3, p', function(){
   if (event.which == 13 ){
     $("#search-field").focus();
   }
 })
+
 $("#save-btn").on('click', function(){
   event.preventDefault();
   var titleInput = $("#title-field").val();
@@ -18,6 +20,15 @@ $("#save-btn").on('click', function(){
   displayCards(getCardsFromStorage());
   clearTextField();
 })
+
+function cardSearch(){
+  var searchString = $(this).val().toLowerCase();
+  var searchArray = getCardsFromStorage();
+  var filteredArray = searchArray.filter(function(card){
+    return (card.title.toLowerCase().includes(searchString) || card.body.toLowerCase().includes(searchString));
+  })
+  displayCards(filteredArray);
+}
 
 function updateCardText(event){
   var cardKey = $(event.target).parent().data("storageId");
