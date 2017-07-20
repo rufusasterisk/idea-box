@@ -1,5 +1,6 @@
 //on page load
 displayCards(getCardsFromStorage());
+saveButtonEnable();
 
 //event listeners
 $("#search-field").on('input', cardSearch);
