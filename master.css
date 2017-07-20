@@ -14,6 +14,11 @@
   /*color: #939598;*/
 }
 
+p:focus,
+h3:focus {
+  outline: none;
+}
+
 .input-field::-webkit-input-placeholder {
   color: #939598;
   font-family: "open sans";

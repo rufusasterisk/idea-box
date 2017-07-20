@@ -1,5 +1,10 @@
+//on page load
 displayCards(getCardsFromStorage());
+saveButtonEnable();
+
+//event listeners
 $("#search-field").on('input', cardSearch);
+$("#title-field, #body-field").on('input', saveButtonEnable);
 $(".idea-section").on('click', '.upvote-btn', upvoteCard);
 $(".idea-section").on('click', '.downvote-btn', downvoteCard);
 $(".idea-section").on('click', '.delete-btn', deleteCard);
@@ -20,6 +25,17 @@ $("#save-btn").on('click', function(){
   displayCards(getCardsFromStorage());
   clearTextField();
 })
+
+function saveButtonEnable(){
+  var title = $("#title-field").val();
+  var body = $("#body-field").val();
+  if (title === "" || body === ""){
+    $("#save-btn").prop('disabled', true);
+  }
+  else {
+    $("#save-btn").prop('disabled', false);
+  }
+}
 
 function cardSearch(){
   var searchString = $(this).val().toLowerCase();
