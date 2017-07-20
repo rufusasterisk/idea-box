@@ -22,6 +22,7 @@ $("#save-btn").on('click', function(){
   var id = Date.now();
   var newCard = new IdeaCard(id, titleInput, bodyInput);
   setCard(newCard);
+  // setCard(new IdeaCard(Date.now(), $("#title-field").val(), $("#body-field").val()));
   displayCards(getCardsFromStorage());
   clearTextField();
 })
@@ -79,6 +80,7 @@ function displayCards(displayArray){
 function clearTextField(){
   $("#title-field").val("");
   $("#body-field").val("");
+  saveButtonEnable();
 }
 
 function insertCard(cardHTML){
@@ -90,15 +92,11 @@ function upvoteCard(clickedCard){
   var currentSpan = $(this).parent().find('span');
   if (currentSpan.text() === "swill"){
     currentSpan.text("plausible");
-    var currentCard = getCard(cardKey);
-    currentCard.quality = "plausible";
-    setCard(currentCard);
+    adjustCardQuality(cardKey, "plausible");
   }
   else if (currentSpan.text() === "plausible"){
     currentSpan.text("genius");
-    var currentCard = getCard(cardKey);
-    currentCard.quality = "genius";
-    setCard(currentCard);
+    adjustCardQuality(cardKey, "genius");
   }
 }
 
@@ -115,16 +113,18 @@ function downvoteCard(){
   var currentSpan = $(this).parent().find('span');
   if (currentSpan.text() === "genius"){
     currentSpan.text("plausible");
-    var currentCard = getCard(cardKey);
-    currentCard.quality = "plausible";
-    setCard(currentCard);
+    adjustCardQuality(cardKey, "plausible")
   }
   else if (currentSpan.text() === "plausible"){
     currentSpan.text("swill");
-    var currentCard = getCard(cardKey);
-    currentCard.quality = "swill";
-    setCard(currentCard);
+    adjustCardQuality(cardKey, "swill")
   }
+}
+
+function adjustCardQuality(cardKey, qualityToSet){
+  var currentCard = getCard(cardKey);
+  currentCard.quality = qualityToSet;
+  setCard(currentCard);
 }
 
 function deleteCard(){

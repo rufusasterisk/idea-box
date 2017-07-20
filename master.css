@@ -1,148 +1,155 @@
 * {
   margin: 0;
 }
-.input-section {
-  background-color: #e5f3f2;
-  /*text-align: center*/
-  height: 40vh;
-}
 
-.input-field {
+article {
+  display: block;
+  margin: auto;
+  margin-top: 1em;
+  position: relative;
+  text-align: left;
   width: 55%;
-  margin-bottom: 10px;
-  font-size: 14px;
-  /*color: #939598;*/
 }
 
-p:focus,
-h3:focus {
-  outline: none;
-}
-
-.input-field::-webkit-input-placeholder {
-  color: #939598;
-  font-family: "open sans";
+article div {
+  border-radius: .65em;
+  display: inline-block;
+  height: 1.3em;
+  width: 1.3em;
 }
 
 form {
   text-align: center;
 }
 
+h1 {
+  color: #00a79d;
+  font-family: "roboto slab", sans-serif;
+  font-size: 40px;
+  margin: 0;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  text-align: center;
+}
+
+h3,
+h5 {
+  color: #6d6e71;
+  display: inline-block;
+  font-family: "Roboto Slab", sans-serif;
+  margin: 0;
+}
+
+h5 {
+  margin-bottom: 1em;
+  vertical-align: middle;
+}
+
+h3:focus,
+p:focus {
+  outline: none;
+}
+
+hr {
+  color: #d1d3d4;
+  margin-top: .5em;
+}
+
+p {
+  color: #939598;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.9em;
+  line-height: 120%;
+  margin-top: 0.75em;
+  margin-bottom: 1em;
+}
+
+span {
+  color: #6d6e71;
+  font-family: "Open Sans", sans-serif;
+}
+
+
+.delete-btn {
+  background-image: url('assets/delete.svg');
+  position: absolute;
+  right: 0;
+}
+
+.delete-btn:hover {
+  background-image: url('assets/delete-hover.svg');
+}
+
+.downvote-btn {
+  background-image: url('assets/downvote.svg');
+}
+
+.downvote-btn:hover {
+  background-image: url('assets/downvote-hover.svg');
+}
+
+.header {
+  color: #6d6e71;
+  font-family: "roboto slab", sans-serif;
+}
+
+.input-section {
+  background-color: #e5f3f2;
+  height: 25vh;
+}
+
+.input-field {
+  border-width: 2px;
+  color: #939598;
+  font-size: 1em;
+  margin-bottom: 10px;
+  padding-bottom: .25em;
+  padding-left: .3em;
+  padding-top: .25em;
+  width: 55%;
+}
+
+.input-field::-webkit-input-placeholder {
+  color: #d1d3d4;
+  font-family: "Open Sans", sans-serif;
+}
+
+.idea-section {
+  height: 75vh;
+  text-align: center;
+}
+
+.idea-section input {
+  margin: auto;
+  margin-bottom: .5em;
+  margin-top: 1em;
+}
+.upvote-btn {
+  background-image: url('assets/upvote.svg');
+}
+
+.upvote-btn:hover {
+  background-image: url('assets/upvote-hover.svg');
+}
+
+.upvote-btn,
+.downvote-btn {
+  margin-right: 0.6em;
+}
+
 #save-btn {
   background-color: #00a79d;
-  color: #ffffff;
-  /*margin-bottom: 10px;*/
-  width: 55%;
   border: none;
+  color: #ffffff;
   font-size: 14px;
+  padding: .5em;
+  width: 55.7%;
 }
 
 #save-btn:hover{
   background-color: #045e55;
 }
 
-h1 {
-  color: #00a79d;
-  text-align: center;
-  padding-top: 30px;
-  font-size: 40px;
-  padding-bottom: 20px;
-  font-family: roboto slab;
-
-}
-
-h2 {
-  color: #6d6e71;
-}
-
-p {
-  color: #939598;
-}
-
-.header {
-  color: #6d6e71;
-}
-
-span {
-  color: #6d6e71;
-}
-
-hr {
-  color: #d1d3d4;
-}
-
-
-
-
-
-
-article {
-  width: 55%;
-  display: block;
-  margin: auto;
-  position: relative;
-  text-align: left;
-}
-
-.idea-section {
-  height: 60vh;
-  text-align: center;
-}
-.idea-section input {
-  margin: auto;
-  width: 55%;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  font-size: 1em;
-}
-article div {
-  width: 1.3em;
-  height: 1.3em;
-  border-radius: .65em;
-  display: inline-block;
-}
-article h2, article h3, article h4, article h5 {
-  font-family: "Roboto Slab", sans-serif;
-  display: inline-block;
-  margin: 0;
-  color: #6d6e71
-}
-article h5 {
-  font-family: "Roboto Slab", sans-serif;
-  display: inline-block;
-  margin: 0;
-  color: #6d6e71
-}
-article span {
-  font-family: "Open Sans", sans-serif;
-}
-article p {
-  font-family: "Open Sans", sans-serif;
-  line-height: 120%;
-  margin-top: 0.5em;
-  margin-bottom: 0.75em;
-  font-size: 0.9em;
-}
-.delete-btn {
-  position: absolute;
-  right: 0;
-  background-image: url('assets/delete.svg');
-}
-.delete-btn:hover {
-  background-image: url('assets/delete-hover.svg');
-}
-.upvote-btn {
-  background-image: url('assets/upvote.svg');
-}
-.upvote-btn:hover {
-  background-image: url('assets/upvote-hover.svg');
-}
-.downvote-btn {
-  background-image: url('assets/downvote.svg');
-}
-.downvote-btn:hover {
-  background-image: url('assets/downvote-hover.svg');
-}
-.upvote-btn, .downvote-btn {
-  margin-right: 0.6em;
+#save-btn:disabled{
+  background-color: #939598;
 }
